@@ -7,6 +7,10 @@ mod.apps.chrome = "app.name: Google Chrome"
 mod.apps.chrome = """
 os: windows
 and app.exe: chrome.exe
+os: windows
+and app.name: Vivaldi
+os: windows
+and app.exe: vivaldi.exe
 """
 mod.apps.chrome = """
 os: mac
