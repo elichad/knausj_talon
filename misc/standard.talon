@@ -22,7 +22,7 @@ stoke: key(win-v)
 undo: edit.undo()
 redo: edit.redo()
 spark match: edit.paste_match_style()
-save: edit.save()
+save file: edit.save()
 clear: key(backspace)
 (pad | padding):
 	insert("  ")
