@@ -7,6 +7,20 @@ import sys
 import re
 
 mod = Module()
+# Note: these context matches are specific to ubuntu, but there are other
+# distros one can run under wsl, e.g. docker. for that matter, there are
+# multiple ubuntu distros available. we need a more general way of detecting
+# the current distro, and a way for the user to specify which distro to use
+# for any particular operation. perhaps implement a generic_wsl module and
+# then layer various distros on top of that?
+mod.apps.ubuntu = """
+os: windows
+and app.name: ubuntu.exe
+os: windows
+and app.name: Visual Studio Code
+os: windows
+and app.exe: Code.exe
+"""
 
 ctx = Context()
 
@@ -16,6 +30,7 @@ ctx = Context()
 ctx.matches = fr"""
 app: windows_terminal
 and tag: user.wsl
+and win.title: /Ubuntu/
 tag: user.wsl
 """
 
@@ -304,7 +319,7 @@ def run_wslpath(args, in_path, in_distro=None):
 # and https://github.com/microsoft/WSL/issues/5318.
 #
 # Once the WSL distro is hung, every attempt to use it results in many repeated log messages like these:
-# 
+#
 # 2021-10-15 11:15:49 WARNING [watchdog] "talon.windows.ui._on_event" @30.0s (stalled)
 # 2021-10-15 11:15:49 WARNING [watchdog] "user.knausj_talon.code.file_manager.win_event_handler"
 #
@@ -312,7 +327,7 @@ def run_wslpath(args, in_path, in_distro=None):
 # focus shifts to a wsl context or the current path changes. This gets tiresome if you don't want to restart
 # wsl immediately (because your existing sessions are still running and you want to finish working before
 # restarting wsl).
-# 
+#
 # So, wsl path detection is disabled when this condition is first detected. The user
 # must then re-enable the feature once the underlying problem has been resolved. This can be done by
 # using the 'weasel reset path detection' voice command or simply reloading this file.
@@ -393,6 +408,11 @@ def run_wsl(args, distro=None):
 def get_distro():
     return run_wsl(["\n"])[0]
 
+@ctx.action_class('edit')
+class EditActions:
+    def paste(): actions.key('ctrl-shift-v')
+    def copy():  actions.key('ctrl-shift-c')
+
 @ctx.action_class('user')
 class UserActions:
     def file_manager_refresh_title(): actions.skip()
@@ -471,17 +491,13 @@ class UserActions:
         actions.user.file_manager_open_directory(volume)
 
     def terminal_list_directories():
-        actions.insert("ls")
-        actions.key("enter")
+        actions.insert("ls ")
 
     def terminal_list_all_directories():
-        actions.insert("ls -a")
-        actions.key("enter")
+        actions.insert("ls -a ")
 
     def terminal_change_directory(path: str):
         actions.insert("cd {}".format(path))
-        if path:
-            actions.key("enter")
 
     def terminal_change_directory_root():
         """Root of current drive"""
