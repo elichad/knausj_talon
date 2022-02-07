@@ -164,7 +164,6 @@ punctuation_words = {
 symbol_key_words = {
     "dot": ".",
     "point": ".",
-    "quote": "'",
     "chicky": "'",
     "apostrophe": "'",
     "L square": "[",

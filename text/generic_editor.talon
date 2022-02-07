@@ -75,10 +75,10 @@ select down:
 select word:
     edit.select_word()
 
-queue lease:
+quack lease:
     edit.extend_word_left()
 
-queue ross:
+quack ross:
     edit.extend_word_right()
 
 select way left:
