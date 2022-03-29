@@ -408,10 +408,10 @@ def run_wsl(args, distro=None):
 def get_distro():
     return run_wsl(["\n"])[0]
 
-@ctx.action_class('edit')
-class EditActions:
-    def paste(): actions.key('ctrl-shift-v')
-    def copy():  actions.key('ctrl-shift-c')
+#@ctx.action_class('edit')
+#class EditActions:
+#    def paste(): actions.key('ctrl-shift-v')
+#    def copy():  actions.key('ctrl-shift-c')
 
 @ctx.action_class('user')
 class UserActions:
