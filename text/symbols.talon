@@ -68,7 +68,7 @@ hug percent:
     user.paste("%{text}%")
 hug quotes:
     text = edit.selected_text()
-    user.paste("'{text}'")
+    user.paste('"{text}"')
 (double quote | dubquote) that:
     text = edit.selected_text()
     user.paste('"{text}"')
