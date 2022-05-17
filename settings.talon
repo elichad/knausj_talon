@@ -43,7 +43,7 @@ settings():
     # "command history more" to display all of them, "command history less" to restore
     user.command_history_size = 50
 
-    user.mouse_enable_hiss_drag = 1
+    user.mouse_enable_hiss_drag = 0
 
     user.mouse_enable_puh_click = 1
 
@@ -52,7 +52,7 @@ settings():
     # copying surrounding text before inserting. This can be slow and may not
     # work in some applications. You may wish to enable this on a
     # per-application basis.
-    # user.context_sensitive_dictation = 1
+    user.context_sensitive_dictation = 1
 
 # Uncomment this to enable the curse yes/curse no commands (show hide mouse cursor). See issue #688.
 # tag(): user.mouse_cursor_commands_enable
