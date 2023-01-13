@@ -7,7 +7,7 @@ tag(): user.code_comment_block_c_like
 tag(): user.code_data_bool
 tag(): user.code_data_null
 tag(): user.code_functions
-tag(): user.code_functions_gui
+tag(): user.code_functions_common
 tag(): user.code_libraries
 tag(): user.code_libraries_gui
 tag(): user.code_operators_array
@@ -25,11 +25,6 @@ settings():
     user.code_public_variable_formatter = "SNAKE_CASE"
     # whether or not to use uint_8 style datatypes
     #    user.use_stdint_datatypes = 1
-
-
-
-^funky <user.text>$: user.code_default_function(text)
-^static funky <user.text>$: user.code_private_static_function(text)
 
 # NOTE: migrated from generic, as they were only used here, though once cpp support is added, perhaps these should be migrated to a tag together with the commands below
 state include:
