@@ -208,8 +208,8 @@ terminal <number_small>: user.vscode_terminal(number_small)
 termites editor: key("shift-alt-'")
 termites new editor: key("ctrl-shift-alt-;")
 termites new here: key("ctrl-shift-alt-'")
-termites puppy: key("shift-pageup")
-termites pound: key("shift-pagedown")
+termites puck: key("shift-pageup")
+termites don: key("shift-pagedown")
 
 #TODO: should this be added to linecommands?
 copy line down: user.vscode("editor.action.copyLinesDownAction")
