@@ -211,7 +211,6 @@ symbol_key_words = {
     "dubquote": '"',
     "double quote": '"',
     "chocky": '"',
-
     # Currencies
     "dollar": "$",
 }
@@ -252,7 +251,7 @@ alternate_keys = {
     "latch": "home",
     "ratch": "end",
     "spit": "tab",
-    "ta": "space",
+    "yo": "space",
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
