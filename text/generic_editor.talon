@@ -66,10 +66,10 @@ select left:
 select right:
     edit.extend_right()
 
-select up:
+select up | sugar:
     edit.extend_line_up()
 
-select down:
+select down | cider:
     edit.extend_line_down()
 
 select word:

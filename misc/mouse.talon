@@ -58,8 +58,8 @@ right drag | righty drag:
 	user.mouse_drag(1)
 	# close the mouse grid
 	user.grid_close()
-end drag | drag end | oyo:
-    user.mouse_drag_end()
+end drag | drag end | ooya:
+    user.mouse_drag_end() 
 wheel down: user.mouse_scroll_down()
 wheel down here:
     user.mouse_move_center_active_window()
